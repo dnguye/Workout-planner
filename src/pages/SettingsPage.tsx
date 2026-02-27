@@ -47,8 +47,8 @@ export function SettingsPage() {
 
       <Card>
         <p className="text-xs text-text-muted text-center">
-          RP Hypertrophy Planner v1.0
-          <br />Built with Renaissance Periodization principles
+          Ultra Instinct Trainer v1.0
+          <br />Optimizing workout with evidence based science
         </p>
       </Card>
     </div>

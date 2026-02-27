@@ -1,7 +1,7 @@
 {
-  "name": "RP Hypertrophy Planner",
-  "short_name": "RP Planner",
-  "description": "Evidence-based workout planning with Renaissance Periodization principles",
+  "name": "Ultra Instinct Trainer",
+  "short_name": "UI Trainer",
+  "description": "Optimizing workout with evidence based science",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0f0f13",

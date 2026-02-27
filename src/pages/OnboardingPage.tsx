@@ -22,8 +22,8 @@ export function OnboardingPage() {
         {step === 0 && (
           <div className="text-center space-y-6">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold">RP Hypertrophy Planner</h1>
-              <p className="text-text-secondary">Evidence-based workout planning with Renaissance Periodization principles</p>
+              <h1 className="text-3xl font-bold">Ultra Instinct Trainer</h1>
+              <p className="text-text-secondary">Optimizing workout with evidence based science</p>
             </div>
             <div className="space-y-3 text-left">
               <div className="bg-bg-card rounded-xl border border-border p-4">
