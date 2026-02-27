@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { EducationIllustration } from '../components/illustrations';
 import { GlossarySection } from '../components/education/GlossarySection';
 import { TrainingTipsSection } from '../components/education/TrainingTipsSection';
@@ -7,7 +6,6 @@ import { TrainingTipsSection } from '../components/education/TrainingTipsSection
 type Tab = 'glossary' | 'tips';
 
 export function EducationPage() {
-  const navigate = useNavigate();
   const [tab, setTab] = useState<Tab>('glossary');
 
   const tabs: { id: Tab; label: string }[] = [
@@ -17,17 +15,7 @@ export function EducationPage() {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center gap-3">
-        <button
-          onClick={() => navigate('/settings')}
-          className="p-1.5 -ml-1.5 rounded-lg hover:bg-bg-hover transition-colors"
-        >
-          <svg className="w-5 h-5 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-        <h1 className="text-xl font-bold">Learn</h1>
-      </div>
+      <h1 className="text-xl font-bold">Learn</h1>
 
       <div className="flex flex-col items-center py-2">
         <EducationIllustration className="w-24 h-24" />
