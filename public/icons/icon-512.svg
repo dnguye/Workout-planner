@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="102" fill="#6366f1"/>
+  <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle"
+        font-family="system-ui, sans-serif" font-weight="bold" fill="white"
+        font-size="179">RP</text>
+  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle"
+        font-family="system-ui, sans-serif" font-weight="500" fill="rgba(255,255,255,0.7)"
+        font-size="51">PLANNER</text>
+</svg>
