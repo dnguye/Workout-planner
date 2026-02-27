@@ -5,6 +5,7 @@ import { PlannerPage } from './pages/PlannerPage'
 import { WorkoutPage } from './pages/WorkoutPage'
 import { HistoryPage } from './pages/HistoryPage'
 import { SettingsPage } from './pages/SettingsPage'
+import { EducationPage } from './pages/EducationPage'
 import { useAppState } from './storage/AppContext'
 import { OnboardingPage } from './pages/OnboardingPage'
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/workout" element={<WorkoutPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/learn" element={<EducationPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AppShell>

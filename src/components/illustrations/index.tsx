@@ -219,6 +219,42 @@ export function NoSearchResultsIllustration({ className, ...props }: Illustratio
   );
 }
 
+/** Open book with glowing lightbulb — education / learn page */
+export function EducationIllustration({ className, ...props }: IllustrationProps) {
+  return (
+    <svg viewBox="0 0 200 200" fill="none" className={className} {...props}>
+      {glowFilter}
+      {/* Book — open spread */}
+      <path d="M100 140 L45 130 Q38 128 38 120 L38 70 Q38 62 45 64 L100 78 Z" stroke="#6366f1" strokeWidth="1.5" strokeOpacity="0.5" />
+      <path d="M100 140 L155 130 Q162 128 162 120 L162 70 Q162 62 155 64 L100 78 Z" stroke="#6366f1" strokeWidth="1.5" strokeOpacity="0.5" />
+      {/* Spine */}
+      <line x1="100" y1="78" x2="100" y2="140" stroke="#6366f1" strokeWidth="1.5" strokeOpacity="0.6" />
+      {/* Page lines — left */}
+      <line x1="55" y1="82" x2="90" y2="88" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.2" strokeLinecap="round" />
+      <line x1="55" y1="92" x2="90" y2="98" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.15" strokeLinecap="round" />
+      <line x1="55" y1="102" x2="85" y2="107" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.12" strokeLinecap="round" />
+      {/* Page lines — right */}
+      <line x1="110" y1="88" x2="145" y2="82" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.2" strokeLinecap="round" />
+      <line x1="110" y1="98" x2="145" y2="92" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.15" strokeLinecap="round" />
+      <line x1="110" y1="107" x2="140" y2="102" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.12" strokeLinecap="round" />
+      {/* Lightbulb */}
+      <circle cx="100" cy="42" r="16" stroke="#6366f1" strokeWidth="2" filter="url(#glow)" />
+      <line x1="95" y1="58" x2="105" y2="58" stroke="#6366f1" strokeWidth="1.5" strokeOpacity="0.6" strokeLinecap="round" />
+      <line x1="96" y1="62" x2="104" y2="62" stroke="#6366f1" strokeWidth="1.5" strokeOpacity="0.5" strokeLinecap="round" />
+      {/* Filament */}
+      <path d="M96 47 Q100 38 104 47" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" filter="url(#glow)" />
+      {/* Energy aura rings */}
+      <circle cx="100" cy="42" r="24" stroke="#6366f1" strokeWidth="1" strokeOpacity="0.2" strokeDasharray="4 3" />
+      <circle cx="100" cy="42" r="32" stroke="#6366f1" strokeWidth="0.75" strokeOpacity="0.12" strokeDasharray="3 4" />
+      {/* Sparkle particles */}
+      <circle cx="68" cy="30" r="1.5" fill="#6366f1" opacity="0.4" />
+      <circle cx="135" cy="35" r="2" fill="#6366f1" opacity="0.5" />
+      <circle cx="72" cy="55" r="1" fill="#6366f1" opacity="0.3" />
+      <circle cx="130" cy="52" r="1.5" fill="#6366f1" opacity="0.35" />
+    </svg>
+  );
+}
+
 /** Stacked bar chart with gradient — volume landmarks icon (24x24 for onboarding card) */
 export function VolumeLandmarksIcon({ className, ...props }: IllustrationProps) {
   return (
