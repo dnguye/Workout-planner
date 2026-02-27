@@ -1,10 +1,15 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <script>
-      // Redirect all routes to index.html for SPA client-side routing
-      var path = window.location.pathname;
-      window.location.replace(window.location.origin + path);
+      // SPA redirect: send all routes to index.html preserving the path
+      var repo = '/Workout-planner/';
+      var fullPath = window.location.pathname;
+      if (fullPath.startsWith(repo)) {
+        var route = fullPath.slice(repo.length);
+        window.location.replace(repo + '?route=' + encodeURIComponent(route));
+      }
     </script>
   </head>
 </html>

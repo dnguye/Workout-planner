@@ -6,17 +6,17 @@
     <title>Ultra Instinct Trainer</title>
 
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="theme-color" content="#6366f1" />
 
     <!-- iOS PWA -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="RP Planner" />
-    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.svg" />
+    <meta name="apple-mobile-web-app-title" content="UI Trainer" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.svg" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg" />
   </head>
   <body>
     <div id="root"></div>
@@ -24,7 +24,8 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
+          const base = document.baseURI.replace(/\/[^/]*$/, '/');
+          navigator.serviceWorker.register(base + 'sw.js');
         });
       }
     </script>
