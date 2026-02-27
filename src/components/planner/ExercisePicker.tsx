@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MuscleGroup, ExerciseDefinition } from '../../types';
 import { exercises } from '../../data/exercises';
 import { Modal } from '../ui/Modal';
+import { NoSearchResultsIllustration } from '../illustrations';
 
 interface ExercisePickerProps {
   open: boolean;
@@ -54,7 +55,10 @@ export function ExercisePicker({ open, onClose, onSelect, filterMuscle }: Exerci
             </button>
           ))}
           {filtered.length === 0 && (
-            <p className="text-text-muted text-sm text-center py-4">No exercises found</p>
+            <div className="flex flex-col items-center py-4">
+              <NoSearchResultsIllustration className="w-20 h-20 mb-2" />
+              <p className="text-text-muted text-sm">No exercises found</p>
+            </div>
           )}
         </div>
       </div>

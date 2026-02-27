@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { WorkoutLog, ExperienceLevel } from '../../types';
 import { calculateWeeklyVolume } from '../../engine/volumeCalculator';
 import { Card } from '../ui/Card';
+import { NoChartDataIllustration } from '../illustrations';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 interface VolumeHistoryProps {
@@ -38,7 +39,10 @@ export function VolumeHistory({ logs, mesocycleId, totalWeeks }: VolumeHistoryPr
           </BarChart>
         </ResponsiveContainer>
       ) : (
-        <p className="text-text-muted text-xs text-center py-8">No volume data yet</p>
+        <div className="flex flex-col items-center py-4">
+          <NoChartDataIllustration className="w-24 h-24 mb-2" />
+          <p className="text-text-muted text-xs">No volume data yet</p>
+        </div>
       )}
     </Card>
   );

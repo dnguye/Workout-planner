@@ -1,9 +1,40 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="102" fill="#6366f1"/>
-  <text x="50%" y="48%" dominant-baseline="middle" text-anchor="middle"
-        font-family="system-ui, sans-serif" font-weight="bold" fill="white"
-        font-size="179">RP</text>
-  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle"
-        font-family="system-ui, sans-serif" font-weight="500" fill="rgba(255,255,255,0.7)"
-        font-size="51">PLANNER</text>
+  <defs>
+    <filter id="aura">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="102" fill="#0f0f1a"/>
+  <!-- Concentric energy rings -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.1"/>
+  <circle cx="256" cy="256" r="180" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.15"/>
+  <circle cx="256" cy="256" r="150" fill="none" stroke="#6366f1" stroke-width="2" stroke-opacity="0.2"/>
+  <circle cx="256" cy="256" r="120" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Orbital rings -->
+  <ellipse cx="256" cy="256" rx="195" ry="70" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.2" transform="rotate(-20 256 256)"/>
+  <ellipse cx="256" cy="256" rx="195" ry="70" fill="none" stroke="#6366f1" stroke-width="1" stroke-opacity="0.15" transform="rotate(40 256 256)"/>
+  <!-- UI text -->
+  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle"
+        font-family="system-ui, sans-serif" font-weight="bold" fill="#6366f1"
+        font-size="179" filter="url(#aura)">UI</text>
+  <!-- Energy particles -->
+  <circle cx="90" cy="120" r="4" fill="#6366f1" opacity="0.5" filter="url(#softGlow)"/>
+  <circle cx="420" cy="100" r="5" fill="#6366f1" opacity="0.4" filter="url(#softGlow)"/>
+  <circle cx="75" cy="350" r="3.5" fill="#6366f1" opacity="0.3"/>
+  <circle cx="440" cy="380" r="4" fill="#6366f1" opacity="0.4" filter="url(#softGlow)"/>
+  <circle cx="130" cy="240" r="2.5" fill="#6366f1" opacity="0.3"/>
+  <circle cx="390" cy="200" r="3" fill="#6366f1" opacity="0.35"/>
+  <circle cx="180" cy="420" r="3" fill="#6366f1" opacity="0.25"/>
+  <circle cx="350" cy="430" r="2.5" fill="#6366f1" opacity="0.3"/>
 </svg>

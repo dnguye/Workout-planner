@@ -1,6 +1,7 @@
 import { WorkoutLog } from '../../types';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
+import { NoWorkoutsIllustration } from '../illustrations';
 
 interface RecentWorkoutsProps {
   logs: WorkoutLog[];
@@ -12,7 +13,10 @@ export function RecentWorkouts({ logs }: RecentWorkoutsProps) {
   if (recent.length === 0) {
     return (
       <Card>
-        <p className="text-text-muted text-sm text-center py-4">No workouts logged yet</p>
+        <div className="flex flex-col items-center py-4">
+          <NoWorkoutsIllustration className="w-24 h-24 mb-2" />
+          <p className="text-text-muted text-sm">No workouts logged yet</p>
+        </div>
       </Card>
     );
   }

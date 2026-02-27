@@ -4,6 +4,7 @@ import { getExerciseById } from '../../data/exercises';
 import { getProgressionSuggestion, getRestTime } from '../../engine/progressionEngine';
 import { Badge } from '../ui/Badge';
 import { RestTimer } from './RestTimer';
+import { MuscleIcon } from '../illustrations/MuscleIcons';
 
 interface ExerciseCardProps {
   planned: PlannedExercise;
@@ -45,9 +46,12 @@ export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onS
   return (
     <div className={`bg-bg-card rounded-xl border border-border p-4 ${allLogged ? 'opacity-70' : ''}`}>
       <div className="flex items-center justify-between mb-3">
-        <div>
-          <h3 className="font-semibold text-sm">{def.name}</h3>
-          <p className="text-xs text-text-muted">{def.repRangeLow}-{def.repRangeHigh} reps · RIR {targetRIR}</p>
+        <div className="flex items-start gap-2">
+          <MuscleIcon muscle={def.primaryMuscle} className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+          <div>
+            <h3 className="font-semibold text-sm">{def.name}</h3>
+            <p className="text-xs text-text-muted">{def.repRangeLow}-{def.repRangeHigh} reps · RIR {targetRIR}</p>
+          </div>
         </div>
         <Badge color={def.type === 'compound' ? 'blue' : 'default'}>{def.type}</Badge>
       </div>

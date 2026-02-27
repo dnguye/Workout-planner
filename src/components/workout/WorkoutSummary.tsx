@@ -4,6 +4,8 @@ import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/Button';
+import { WorkoutCompleteIllustration } from '../illustrations';
+import { MuscleIcon } from '../illustrations/MuscleIcons';
 
 interface WorkoutSummaryProps {
   logs: WorkoutLog[];
@@ -38,7 +40,7 @@ export function WorkoutSummary({ logs, mesocycleId }: WorkoutSummaryProps) {
   return (
     <div className="space-y-4">
       <div className="text-center py-4">
-        <div className="text-4xl mb-2">&#x1f4aa;</div>
+        <WorkoutCompleteIllustration className="w-28 h-28 mx-auto mb-2" />
         <h2 className="text-xl font-bold">Workout Complete!</h2>
         <p className="text-text-secondary text-sm">{lastLog.dayName} · {lastLog.durationMinutes} min</p>
       </div>
@@ -65,7 +67,10 @@ export function WorkoutSummary({ logs, mesocycleId }: WorkoutSummaryProps) {
             .sort(([, a], [, b]) => b - a)
             .map(([muscle, sets]) => (
               <div key={muscle} className="flex items-center justify-between">
-                <span className="text-sm text-text-secondary">{muscle}</span>
+                <span className="text-sm text-text-secondary flex items-center gap-1.5">
+                  <MuscleIcon muscle={muscle as MuscleGroup} className="w-4 h-4" />
+                  {muscle}
+                </span>
                 <Badge color="blue">{sets} sets</Badge>
               </div>
             ))}

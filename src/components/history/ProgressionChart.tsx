@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { WorkoutLog } from '../../types';
 import { exercises } from '../../data/exercises';
 import { Card } from '../ui/Card';
+import { NoChartDataIllustration } from '../illustrations';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 interface ProgressionChartProps {
@@ -66,9 +67,12 @@ export function ProgressionChart({ logs }: ProgressionChartProps) {
           </LineChart>
         </ResponsiveContainer>
       ) : (
-        <p className="text-text-muted text-xs text-center py-8">
-          {selectedExercise ? 'Need at least 2 sessions to chart' : 'Select an exercise to view progression'}
-        </p>
+        <div className="flex flex-col items-center py-4">
+          <NoChartDataIllustration className="w-24 h-24 mb-2" />
+          <p className="text-text-muted text-xs">
+            {selectedExercise ? 'Need at least 2 sessions to chart' : 'Select an exercise to view progression'}
+          </p>
+        </div>
       )}
     </Card>
   );

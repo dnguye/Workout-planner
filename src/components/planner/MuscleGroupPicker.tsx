@@ -1,5 +1,6 @@
 import { MuscleGroup, MusclePriority } from '../../types';
 import { Chip } from '../ui/Chip';
+import { MuscleIcon } from '../illustrations/MuscleIcons';
 
 interface MuscleGroupPickerProps {
   priorities: Record<MuscleGroup, MusclePriority>;
@@ -46,6 +47,7 @@ export function MuscleGroupPicker({ priorities, onChange }: MuscleGroupPickerPro
             <Chip
               key={muscle}
               label={muscleLabels[muscle]}
+              icon={<MuscleIcon muscle={muscle} className="w-4 h-4" />}
               selected={true}
               color={color}
               onClick={() => cyclePriority(muscle)}

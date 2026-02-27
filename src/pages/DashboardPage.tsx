@@ -4,6 +4,7 @@ import { NextWorkoutCard } from '../components/dashboard/NextWorkoutCard';
 import { WeeklyVolumeChart } from '../components/dashboard/WeeklyVolumeChart';
 import { RecentWorkouts } from '../components/dashboard/RecentWorkouts';
 import { Button } from '../components/ui/Button';
+import { EmptyPlanIllustration } from '../components/illustrations';
 import { useNavigate } from 'react-router-dom';
 
 export function DashboardPage() {
@@ -14,6 +15,7 @@ export function DashboardPage() {
   if (!activeMesocycle) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] text-center space-y-4">
+        <EmptyPlanIllustration className="w-36 h-36" />
         <div className="space-y-2">
           <h1 className="text-2xl font-bold">No Active Plan</h1>
           <p className="text-text-secondary text-sm">Create a mesocycle to start training</p>

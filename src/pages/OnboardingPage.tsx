@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ExperienceLevel, WeightUnit } from '../types';
 import { useAppState } from '../storage/AppContext';
 import { Button } from '../components/ui/Button';
+import { OnboardingHeroIllustration, VolumeLandmarksIcon, SmartProgressionIcon, MesocycleStructureIcon } from '../components/illustrations';
 
 export function OnboardingPage() {
   const { dispatch } = useAppState();
@@ -21,22 +22,32 @@ export function OnboardingPage() {
       <div className="w-full max-w-sm space-y-6">
         {step === 0 && (
           <div className="text-center space-y-6">
+            <OnboardingHeroIllustration className="w-40 h-40 mx-auto" />
             <div className="space-y-2">
               <h1 className="text-3xl font-bold">Ultra Instinct Trainer</h1>
               <p className="text-text-secondary">Optimizing workout with evidence based science</p>
             </div>
             <div className="space-y-3 text-left">
-              <div className="bg-bg-card rounded-xl border border-border p-4">
-                <h3 className="font-semibold text-sm mb-1">Volume Landmarks</h3>
-                <p className="text-xs text-text-muted">MEV → MAV → MRV per muscle for optimal growth</p>
+              <div className="bg-bg-card rounded-xl border border-border p-4 flex items-start gap-3">
+                <VolumeLandmarksIcon className="w-6 h-6 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-sm mb-1">Volume Landmarks</h3>
+                  <p className="text-xs text-text-muted">MEV → MAV → MRV per muscle for optimal growth</p>
+                </div>
               </div>
-              <div className="bg-bg-card rounded-xl border border-border p-4">
-                <h3 className="font-semibold text-sm mb-1">Smart Progression</h3>
-                <p className="text-xs text-text-muted">Double progression: reps → weight → sets</p>
+              <div className="bg-bg-card rounded-xl border border-border p-4 flex items-start gap-3">
+                <SmartProgressionIcon className="w-6 h-6 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-sm mb-1">Smart Progression</h3>
+                  <p className="text-xs text-text-muted">Double progression: reps → weight → sets</p>
+                </div>
               </div>
-              <div className="bg-bg-card rounded-xl border border-border p-4">
-                <h3 className="font-semibold text-sm mb-1">Mesocycle Structure</h3>
-                <p className="text-xs text-text-muted">4-6 week blocks with planned deloads</p>
+              <div className="bg-bg-card rounded-xl border border-border p-4 flex items-start gap-3">
+                <MesocycleStructureIcon className="w-6 h-6 shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-sm mb-1">Mesocycle Structure</h3>
+                  <p className="text-xs text-text-muted">4-6 week blocks with planned deloads</p>
+                </div>
               </div>
             </div>
             <Button onClick={() => setStep(1)} className="w-full" size="lg">Get Started</Button>

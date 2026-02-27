@@ -1,6 +1,7 @@
 import { MuscleGroup, WorkoutLog, ExperienceLevel } from '../../types';
 import { getMuscleVolumeStatuses, MuscleVolumeStatus } from '../../engine/volumeCalculator';
 import { Card } from '../ui/Card';
+import { MuscleIcon } from '../illustrations/MuscleIcons';
 
 interface WeeklyVolumeChartProps {
   logs: WorkoutLog[];
@@ -51,7 +52,10 @@ export function WeeklyVolumeChart({ logs, mesocycleId, currentWeek, experienceLe
           .filter(s => s.totalSets > 0 || s.landmarks.mev > 0)
           .map(s => (
             <div key={s.muscle} className="flex items-center gap-2">
-              <span className="text-xs text-text-muted w-16 truncate">{muscleLabels[s.muscle]}</span>
+              <span className="text-xs text-text-muted w-20 truncate flex items-center gap-1">
+                <MuscleIcon muscle={s.muscle} className="w-3.5 h-3.5 shrink-0" />
+                {muscleLabels[s.muscle]}
+              </span>
               <div className="flex-1 relative h-5 bg-bg-primary rounded">
                 {/* MEV marker */}
                 <div

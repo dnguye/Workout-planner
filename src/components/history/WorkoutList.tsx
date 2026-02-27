@@ -4,6 +4,7 @@ import { getExerciseById } from '../../data/exercises';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
 import { WorkoutDetail } from './WorkoutDetail';
+import { NoWorkoutsIllustration } from '../illustrations';
 
 interface WorkoutListProps {
   logs: WorkoutLog[];
@@ -43,7 +44,10 @@ export function WorkoutList({ logs }: WorkoutListProps) {
 
       {filtered.length === 0 ? (
         <Card>
-          <p className="text-text-muted text-sm text-center py-8">No workouts found</p>
+          <div className="flex flex-col items-center py-6">
+            <NoWorkoutsIllustration className="w-28 h-28 mb-2" />
+            <p className="text-text-muted text-sm">No workouts found</p>
+          </div>
         </Card>
       ) : (
         filtered.map(log => {

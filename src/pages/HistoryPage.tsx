@@ -3,6 +3,7 @@ import { useAppState } from '../storage/AppContext';
 import { WorkoutList } from '../components/history/WorkoutList';
 import { ProgressionChart } from '../components/history/ProgressionChart';
 import { VolumeHistory } from '../components/history/VolumeHistory';
+import { NoChartDataIllustration } from '../components/illustrations';
 
 type Tab = 'workouts' | 'progression' | 'volume';
 
@@ -45,7 +46,10 @@ export function HistoryPage() {
         />
       )}
       {tab === 'volume' && !state.activeMesocycle && (
-        <p className="text-text-muted text-sm text-center py-8">No active mesocycle for volume tracking</p>
+        <div className="flex flex-col items-center py-6">
+          <NoChartDataIllustration className="w-28 h-28 mb-2" />
+          <p className="text-text-muted text-sm">No active mesocycle for volume tracking</p>
+        </div>
       )}
     </div>
   );
