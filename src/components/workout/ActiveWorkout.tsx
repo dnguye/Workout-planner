@@ -61,6 +61,15 @@ export function ActiveWorkout({ mesocycle }: ActiveWorkoutProps) {
     });
   }
 
+  function handleSetUndone(exerciseId: string, setIndex: number) {
+    const existing = session!.exerciseLogs[exerciseId] || [];
+    const updated = existing.filter((_, i) => i !== setIndex);
+    dispatch({
+      type: 'UPDATE_WORKOUT_SESSION',
+      payload: { exerciseLogs: { ...session!.exerciseLogs, [exerciseId]: updated } },
+    });
+  }
+
   function handleFinish() {
     const exercises: LoggedExercise[] = currentDay.exercises.map(ex => ({
       exerciseId: ex.exerciseId,
@@ -123,6 +132,7 @@ export function ActiveWorkout({ mesocycle }: ActiveWorkoutProps) {
             previousLogs={state.workoutLogs}
             loggedSets={exerciseLogs[ex.exerciseId] || []}
             onSetLogged={(setIdx, set) => handleSetLogged(ex.exerciseId, setIdx, set)}
+            onSetUndone={(setIdx) => handleSetUndone(ex.exerciseId, setIdx)}
             weightUnit={state.userProfile.weightUnit}
           />
         ))}

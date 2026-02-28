@@ -12,12 +12,14 @@ interface ExerciseCardProps {
   previousLogs: WorkoutLog[];
   loggedSets: LoggedSet[];
   onSetLogged: (setIndex: number, set: LoggedSet) => void;
+  onSetUndone: (setIndex: number) => void;
   weightUnit: string;
 }
 
-export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onSetLogged, weightUnit }: ExerciseCardProps) {
+export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onSetLogged, onSetUndone, weightUnit }: ExerciseCardProps) {
   const def = getExerciseById(planned.exerciseId);
   const [showRestTimer, setShowRestTimer] = useState(false);
+  const [lastLoggedIndex, setLastLoggedIndex] = useState<number | null>(null);
   const suggestionsRef = useRef<ProgressionSuggestion[]>(
     planned.sets.map((_, i) =>
       getProgressionSuggestion(planned.exerciseId, targetRIR, previousLogs, i)
@@ -39,6 +41,7 @@ export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onS
       rir: isNaN(parsedRir) ? suggestion.rir : parsedRir,
     });
 
+    setLastLoggedIndex(setIndex);
     setShowRestTimer(true);
   }
 
@@ -127,6 +130,11 @@ export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onS
         <RestTimer
           initialSeconds={getRestTime(planned.exerciseId)}
           onDismiss={() => setShowRestTimer(false)}
+          onUndo={lastLoggedIndex !== null ? () => {
+            onSetUndone(lastLoggedIndex);
+            setLastLoggedIndex(null);
+            setShowRestTimer(false);
+          } : undefined}
         />
       )}
     </div>

@@ -3,9 +3,10 @@ import { useState, useEffect, useCallback } from 'react';
 interface RestTimerProps {
   initialSeconds: number;
   onDismiss: () => void;
+  onUndo?: () => void;
 }
 
-export function RestTimer({ initialSeconds, onDismiss }: RestTimerProps) {
+export function RestTimer({ initialSeconds, onDismiss, onUndo }: RestTimerProps) {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [isRunning, setIsRunning] = useState(true);
 
@@ -57,6 +58,14 @@ export function RestTimer({ initialSeconds, onDismiss }: RestTimerProps) {
           {seconds === 0 ? 'Rest complete!' : 'Rest Timer'}
         </p>
         <div className="flex gap-3 justify-center">
+          {onUndo && (
+            <button
+              onClick={onUndo}
+              className="px-4 py-2 rounded-lg bg-red-500/20 border border-red-500/30 text-red-400 text-sm hover:bg-red-500/30"
+            >
+              Undo Set
+            </button>
+          )}
           {seconds > 0 && (
             <button
               onClick={() => setSeconds(s => Math.max(0, s + 30))}
