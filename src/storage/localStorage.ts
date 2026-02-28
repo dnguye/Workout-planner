@@ -15,6 +15,7 @@ const defaultState: AppState = {
   activeMesocycle: null,
   mesocycleHistory: [],
   workoutLogs: [],
+  activeWorkoutSession: null,
 };
 
 export function loadState(): AppState {

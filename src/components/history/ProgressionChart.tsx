@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { WorkoutLog } from '../../types';
+import { WorkoutLog, LoggedSet } from '../../types';
 import { exercises } from '../../data/exercises';
 import { Card } from '../ui/Card';
 import { NoChartDataIllustration } from '../illustrations';
@@ -25,9 +25,11 @@ export function ProgressionChart({ logs }: ProgressionChartProps) {
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
       .map(l => {
         const ex = l.exercises.find(e => e.exerciseId === selectedExercise)!;
-        const bestSet = ex.sets.reduce((best, s) => (s.weight > best.weight ? s : best), ex.sets[0]);
-        const avgWeight = ex.sets.reduce((sum, s) => sum + s.weight, 0) / ex.sets.length;
-        const totalVolume = ex.sets.reduce((sum, s) => sum + s.weight * s.reps, 0);
+        const validSets = ex.sets.filter((s): s is LoggedSet => s != null);
+        if (validSets.length === 0) return null;
+        const bestSet = validSets.reduce((best, s) => (s.weight > best.weight ? s : best), validSets[0]);
+        const avgWeight = validSets.reduce((sum, s) => sum + s.weight, 0) / validSets.length;
+        const totalVolume = validSets.reduce((sum, s) => sum + s.weight * s.reps, 0);
         return {
           date: new Date(l.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
           topWeight: bestSet?.weight ?? 0,
@@ -35,7 +37,8 @@ export function ProgressionChart({ logs }: ProgressionChartProps) {
           volume: Math.round(totalVolume),
           topReps: bestSet?.reps ?? 0,
         };
-      });
+      })
+      .filter(Boolean);
   }, [logs, selectedExercise]);
 
   return (

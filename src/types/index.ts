@@ -111,11 +111,17 @@ export interface UserProfile {
   onboardingComplete: boolean;
 }
 
+export interface ActiveWorkoutSession {
+  accumulatedMs: number;
+  exerciseLogs: Record<string, LoggedSet[]>;
+}
+
 export interface AppState {
   userProfile: UserProfile;
   activeMesocycle: Mesocycle | null;
   mesocycleHistory: Mesocycle[];
   workoutLogs: WorkoutLog[];
+  activeWorkoutSession: ActiveWorkoutSession | null;
 }
 
 export interface SplitTemplate {

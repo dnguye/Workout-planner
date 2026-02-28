@@ -32,10 +32,11 @@ export function ExerciseCard({ planned, targetRIR, previousLogs, loggedSets, onS
     const reps = (document.getElementById(`reps-${planned.exerciseId}-${setIndex}`) as HTMLInputElement)?.value;
     const rir = (document.getElementById(`rir-${planned.exerciseId}-${setIndex}`) as HTMLInputElement)?.value;
 
+    const parsedRir = parseInt(rir);
     onSetLogged(setIndex, {
       weight: parseFloat(weight) || suggestion.weight || 0,
       reps: parseInt(reps) || suggestion.reps,
-      rir: parseInt(rir) ?? suggestion.rir,
+      rir: isNaN(parsedRir) ? suggestion.rir : parsedRir,
     });
 
     setShowRestTimer(true);
