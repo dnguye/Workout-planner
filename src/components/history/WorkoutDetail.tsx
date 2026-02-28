@@ -41,11 +41,16 @@ export function WorkoutDetail({ log, onBack }: WorkoutDetailProps) {
                 <span className="w-12 text-center">RIR</span>
               </div>
               {ex.sets.map((set, j) => (
-                <div key={j} className="flex gap-4 text-sm py-1">
-                  <span className="w-8 text-text-muted">{j + 1}</span>
-                  <span className="w-16 text-center">{set.weight}</span>
-                  <span className="w-12 text-center">{set.reps}</span>
-                  <span className="w-12 text-center text-text-secondary">{set.rir}</span>
+                <div key={j}>
+                  <div className="flex gap-4 text-sm py-1">
+                    <span className="w-8 text-text-muted">{j + 1}</span>
+                    <span className="w-16 text-center">{set.weight}</span>
+                    <span className="w-12 text-center">{set.reps}</span>
+                    <span className="w-12 text-center text-text-secondary">{set.rir}</span>
+                  </div>
+                  {set.notes && (
+                    <p className="ml-8 text-xs italic text-text-secondary pb-1">{set.notes}</p>
+                  )}
                 </div>
               ))}
             </div>

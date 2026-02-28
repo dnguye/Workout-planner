@@ -87,6 +87,7 @@ export interface LoggedSet {
   weight: number;
   reps: number;
   rir: number;
+  notes?: string;
 }
 
 export interface LoggedExercise {
